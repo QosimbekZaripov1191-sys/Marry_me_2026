@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dating Mini App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <button id="btnCreate">+ Анкета</button>
+  <button id="btnRefresh">Обновить</button>
+</header>
+
+<main>
+
+  <!-- FEED -->
+  <section id="screenFeed" class="screen">
+    <div id="feed"></div>
+  </section>
+
+  <!-- CREATE -->
+  <section id="screenCreate" class="screen" style="display:none;">
+    <label>Имя <input id="displayName"></label>
+    <label>Возраст <input id="age" type="number"></label>
+
+    <label>Пол
+      <select id="gender">
+        <option value="male">Мужчина</option>
+        <option value="female">Женщина</option>
+      </select>
+    </label>
+
+    <label>Регион <input id="region"></label>
+    <label>Город <input id="city"></label>
+    <label>Telegram <input id="username"></label>
+
+    <label>О себе
+      <textarea id="bio"></textarea>
+    </label>
+
+    <div>
+      <button id="btnAddPhoto" type="button">Добавить фото</button>
+      <input id="photoFiles" type="file" accept="image/*" multiple hidden />
+      <div id="photoPreview"></div>
+    </div>
+
+    <button id="btnSave">Сохранить (draft)</button>
+    <button id="btnBack">Назад</button>
+  </section>
+
+</main>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
