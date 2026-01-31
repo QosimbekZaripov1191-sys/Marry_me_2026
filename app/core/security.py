@@ -7,10 +7,18 @@ from jose import jwt
 class TelegramInitDataError(Exception):
     pass
 
-def verify_telegram_init_data(init_data: str, bot_token: str, max_age: int = 86400):
+def verify_telegram_init_data(
+    init_data: str,
+    bot_token: str,
+    max_age: int | None = None,
+    max_age_seconds: int = 86400,
+):
     data = dict(parse_qsl(init_data))
     if "hash" not in data:
         raise TelegramInitDataError("hash missing")
+
+    if max_age is None:
+        max_age = max_age_seconds
 
     auth_date = int(data.get("auth_date", 0))
     if time.time() - auth_date > max_age:
