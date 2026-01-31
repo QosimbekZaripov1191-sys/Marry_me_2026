@@ -20,7 +20,7 @@ def get_current_user_id(
     try:
         payload = jwt.decode(
             token,
-            settings.JWT_SECRET_KEY,
+            settings.JWT_SECRET,
             algorithms=[settings.JWT_ALGORITHM],
         )
     except JWTError:
